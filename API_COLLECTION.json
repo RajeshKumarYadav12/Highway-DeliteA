@@ -1,0 +1,119 @@
+{
+  "info": {
+    "name": "BookIt API Collection",
+    "description": "API endpoints for BookIt experiences booking platform",
+    "version": "1.0.0"
+  },
+  "requests": [
+    {
+      "name": "Get All Experiences",
+      "method": "GET",
+      "url": "http://localhost:5000/api/experiences",
+      "description": "Retrieve all experiences"
+    },
+    {
+      "name": "Search Experiences",
+      "method": "GET",
+      "url": "http://localhost:5000/api/experiences?search=kayaking",
+      "description": "Search experiences by keyword"
+    },
+    {
+      "name": "Filter by Category",
+      "method": "GET",
+      "url": "http://localhost:5000/api/experiences?category=Water Sports",
+      "description": "Filter experiences by category"
+    },
+    {
+      "name": "Get Experience by ID",
+      "method": "GET",
+      "url": "http://localhost:5000/api/experiences/{experienceId}",
+      "description": "Get single experience details by ID"
+    },
+    {
+      "name": "Get Experience Slots",
+      "method": "GET",
+      "url": "http://localhost:5000/api/experiences/{experienceId}/slots",
+      "description": "Get available slots for an experience"
+    },
+    {
+      "name": "Create Booking",
+      "method": "POST",
+      "url": "http://localhost:5000/api/bookings",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "experienceId": "65f1234567890abcdef12345",
+        "experienceTitle": "Kayaking",
+        "fullName": "John Doe",
+        "email": "john@example.com",
+        "promoCode": "SAVE10",
+        "date": "Oct 25",
+        "time": "09:00 am - 11:00 am",
+        "quantity": 2,
+        "subtotal": 1998,
+        "taxes": 100,
+        "discount": 199,
+        "total": 1899
+      },
+      "description": "Create a new booking"
+    },
+    {
+      "name": "Get All Bookings",
+      "method": "GET",
+      "url": "http://localhost:5000/api/bookings",
+      "description": "Retrieve all bookings"
+    },
+    {
+      "name": "Get Booking by Reference",
+      "method": "GET",
+      "url": "http://localhost:5000/api/bookings/{bookingReference}",
+      "description": "Get booking details by reference ID (e.g., HUF12345AB)"
+    },
+    {
+      "name": "Validate Promo Code - SAVE10",
+      "method": "POST",
+      "url": "http://localhost:5000/api/promo/validate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "code": "SAVE10",
+        "subtotal": 1000
+      },
+      "description": "Validate SAVE10 promo code (10% off)"
+    },
+    {
+      "name": "Validate Promo Code - FLAT100",
+      "method": "POST",
+      "url": "http://localhost:5000/api/promo/validate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "code": "FLAT100",
+        "subtotal": 1500
+      },
+      "description": "Validate FLAT100 promo code (₹100 flat off)"
+    },
+    {
+      "name": "Validate Promo Code - WELCOME20",
+      "method": "POST",
+      "url": "http://localhost:5000/api/promo/validate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "code": "WELCOME20",
+        "subtotal": 2500
+      },
+      "description": "Validate WELCOME20 promo code (20% off)"
+    },
+    {
+      "name": "Get All Promo Codes",
+      "method": "GET",
+      "url": "http://localhost:5000/api/promo",
+      "description": "Retrieve all active promo codes"
+    }
+  ]
+}
