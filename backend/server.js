@@ -14,8 +14,13 @@ connectDB();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// Middleware - Configure CORS (Allow all origins for now)
+app.use(cors({
+  origin: true,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
